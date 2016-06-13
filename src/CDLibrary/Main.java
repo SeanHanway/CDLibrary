@@ -1,8 +1,15 @@
 package CDLibrary;
 
 /**
- * Created by Seán Hanway on 13/06/2016.
+ * To Do List:
+ *      Get the program running []
+ *      Test different inputs to try and find potential errors/bugs []
+ *      Create a GUI []
+ *      Create a JAR file to run the program with []
+ *
+ *  @Author Sean Hanway
  */
+
 public class Main {
 
     public static void main(String[] args) {

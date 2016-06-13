@@ -1,29 +1,30 @@
 package CDLibrary;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.List;
+import java.util.*;
 
-/**
- * Created by Seán Hanway on 13/06/2016.
- */
 
 class UserInterface {
 
     private final String menu = "Insert New CD (1)\nBrowse CDS (2)\nRemove CD(3)\nCreate new Library (4)";
     private boolean running = true;
 
-    Scanner scan = new Scanner(System.in);
-    CDLibrary library = new CDLibrary();
-
+    private Scanner scan = new Scanner(System.in);
+    Storage store = new Storage();
 
     void runConsoleInterface(){
+        Library library = store.retrieve();
+        System.out.println("Please select a library");
+        library.getLibrary();
+        //@TODO Display the CDLibrary and let the user select one. If none exist give the option to create one.
+
         while (running) {
             System.out.println(menu);
             if (scan.hasNextInt())
                 switch (scan.nextInt()) {
+                    //@TODO Switch statement currently only contains PLACEMENT CODE. Needs to be redone before the program will run.
                     case 1:
-                        createCD();
+                        //this is done through the CDLibrary class now.
+                        library.insertCD(createCD());
                         break;
                     case 2:
                         library.readLibrary();
@@ -41,9 +42,9 @@ class UserInterface {
         }
     }
 
-    private void createCD() {
-        String name;
-        int released;
+    private CD createCD() {
+        String name = "";
+        int released = 0;
         List<Track> trackList = new ArrayList<Track>();
         boolean valid;
 
@@ -73,5 +74,7 @@ class UserInterface {
             } else
                 valid = false;
         }
+
+        return new CD(name, released, trackList);
     }
 }

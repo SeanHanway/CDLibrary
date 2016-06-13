@@ -1,14 +1,33 @@
 package CDLibrary;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.TreeSet;
 
-/**
- * Created by Seán Hanway on 13/06/2016.
- */
 
 class CDLibrary {
-    void createLibrary(){}
-    void readLibrary(List<CD>){}
-    void deleteLibrary(List<CD>){}
+
+    CDLibrary(String name){
+        this.name=name;
+    }
+
+    String name;
+    Collection<CD> cdLibrary = new TreeSet<>();
+
+    void addCD(CD cd){
+        cdLibrary.add(cd);
+    }
+
+    void removeCD(CD cd){
+        cdLibrary.remove(cd);
+    }
+
+    @Override
+    public String toString(){
+        return name;
+    }
+
+    Collection<CD> getCDLibrary(){
+        return cdLibrary;
+    }
 
 }
