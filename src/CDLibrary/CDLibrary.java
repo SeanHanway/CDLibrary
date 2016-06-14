@@ -1,17 +1,18 @@
 package CDLibrary;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.TreeSet;
 
 
-class CDLibrary {
+class CDLibrary implements Comparable, Serializable{
 
     CDLibrary(String name){
         this.name=name;
     }
 
-    String name;
-    Collection<CD> cdLibrary = new TreeSet<>();
+    private String name;
+    private Collection<CD> cdLibrary = new TreeSet<>();
 
     void addCD(CD cd){
         cdLibrary.add(cd);
@@ -19,6 +20,11 @@ class CDLibrary {
 
     void removeCD(CD cd){
         cdLibrary.remove(cd);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return this.toString().compareTo(o.toString());
     }
 
     @Override

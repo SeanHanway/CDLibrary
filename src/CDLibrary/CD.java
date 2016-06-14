@@ -1,9 +1,10 @@
 package CDLibrary;
 
+import java.io.Serializable;
 import java.util.List;
 
 
-class CD implements Comparable{
+class CD implements Comparable, Serializable{
 
     CD(String title, int released, List<Track> trackList){
         this.title=title;

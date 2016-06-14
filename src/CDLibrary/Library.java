@@ -1,10 +1,11 @@
 package CDLibrary;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.TreeSet;
 
 
-class Library {
+class Library implements Serializable{
 
     private Library(){}
 

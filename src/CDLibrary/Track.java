@@ -1,7 +1,9 @@
 package CDLibrary;
 
 
-class Track {
+import java.io.Serializable;
+
+class Track implements Serializable{
 
     Track(String name){
         this.name=name;
