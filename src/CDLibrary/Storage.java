@@ -6,32 +6,30 @@ import java.io.*;
 class Storage {
 
 
-    private String file = "StoredObjects.txt";
+    private String file = "StoredObjects";
 
 
-    void store(){
+    void store(MasterLibrary lib){
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))){
-            oos.writeObject(Library.getLibraryInstance());
-            System.out.println("Writing successful.");
+            oos.writeObject(lib);
+            System.out.println("Library successfully saved.");
         } catch(IOException ex){
-            System.err.println("Error writing to disk");
+            System.err.println("Error writing to disk.");
             System.err.println(ex.getMessage());
         }
     }
 
-    Library retrieve(){
+    MasterLibrary retrieve(){
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))){
-            Library library = (Library)ois.readObject();
-            return library;
+            return (MasterLibrary)ois.readObject();
         } catch(IOException ex){
-            System.err.println("Error reading from disk");
-            System.err.println(ex.getMessage());
+            System.out.println("No libraries found.");
         } catch(ClassNotFoundException cnf){
-            System.err.println("Could not find Library Class");
+            System.err.println("Could not find MasterLibrary Class.");
             System.err.println(cnf.getMessage());
         }
 
-        return Library.getLibraryInstance();
+        return new MasterLibrary();
     }
 
 }
