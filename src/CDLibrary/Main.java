@@ -9,7 +9,7 @@ package CDLibrary;
  *      Create a GUI []
  *      Create a JAR file to run the program with []
  *
- *  @Author Sean Hanway
+ *  @author Sean Hanway
  */
 
 public class Main {
