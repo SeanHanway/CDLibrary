@@ -12,7 +12,7 @@ class MasterLibrary implements Serializable{
 
     /**
      * Use this method whenever looking to create a MasterLibrary object to ensure the same one is used every time.
-     * @return returns a MasterLibrary object - the same instance should be returned every time.
+     * @return MasterLibrary object - the same instance should be returned every time.
      */
     static MasterLibrary getMasterLibrary(){
         if (masterLibrary == null)
@@ -23,7 +23,7 @@ class MasterLibrary implements Serializable{
     /**
      * creates a new CDLibrary object in the library Collection located in the MasterLibrary object used to call this method.
      * This does NOT create a new MasterLibrary.
-     * @param name This will be the name of the CDLibrary object that is going to be created.
+     * @param name String - This will be the name of the CDLibrary object that is going to be created.
      */
     void createLibrary(String name){
         library.add(new CDLibrary(name));
@@ -31,14 +31,14 @@ class MasterLibrary implements Serializable{
 
     /**
      * Removes the cdLibrary parameter from the library.
-     * @param cdLibrary the cdLibrary you wish to have removed from the library.
+     * @param cdLibrary CDLibrary object - the cdLibrary you wish to have removed from the library.
      */
     void removeFromLibrary(CDLibrary cdLibrary){
         library.remove(cdLibrary);
     }
 
     /**
-     * @return Returns the library containing cdLibrary objects.
+     * @return Collection - Returns the library containing cdLibrary objects.
      */
     Collection<CDLibrary> getLibrary(){
         return library;

@@ -7,7 +7,7 @@ import java.util.TreeSet;
 
 class CDLibrary implements Comparable, Serializable{
     /**
-     * @param name identifies the CDLibrary
+     * @param name String - identifies the CDLibrary
      */
     CDLibrary(String name){
         this.name=name;
@@ -17,14 +17,14 @@ class CDLibrary implements Comparable, Serializable{
     private Collection<CD> cdLibrary = new TreeSet<>();
 
     /**
-     * @param cd adds the CD parameter to the cdLibrary collection.
+     * @param cd CD object - adds the CD parameter to the cdLibrary collection.
      */
     void addCD(CD cd){
         cdLibrary.add(cd);
     }
 
     /**
-     * @param cd removes the CD parameter from the cdLibrary collection.
+     * @param cd CD object - removes the CD parameter from the cdLibrary collection.
      */
     void removeCD(CD cd){
         cdLibrary.remove(cd);
@@ -32,8 +32,8 @@ class CDLibrary implements Comparable, Serializable{
 
     /**
      * Uses the toString method for comparison.
-     * @param o the object you wish to compare this object to.
-     * @return int representing if this object is considered greater or less than the Object parameter.
+     * @param o Object - the object you wish to compare this object to.
+     * @return Int - representing if this object is considered greater or less than the Object parameter.
      */
     @Override
     public int compareTo(Object o) {
@@ -41,7 +41,7 @@ class CDLibrary implements Comparable, Serializable{
     }
 
     /**
-     * @return returns the name of this CDLibrary
+     * @return String - returns the name of this CDLibrary
      */
     @Override
     public String toString(){
@@ -49,7 +49,7 @@ class CDLibrary implements Comparable, Serializable{
     }
 
     /**
-     * @return Returns the cdLibrary collection stored in this cdLibrary collection.
+     * @return Collection - Returns the cdLibrary collection stored in this cdLibrary collection.
      */
     Collection<CD> getCDLibrary(){
         return cdLibrary;

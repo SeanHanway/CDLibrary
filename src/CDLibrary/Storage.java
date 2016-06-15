@@ -5,12 +5,11 @@ import java.io.*;
 
 class Storage {
 
-
     private String file = "StoredObjects";
 
     /**
      * Stores the MasterLibrary parameter in memory on a file created in the project folder
-     * @param lib A MasterLibrary you wish to store in memory on the hard disk.
+     * @param lib MasterLibrary object - A MasterLibrary you wish to store in memory on the hard disk.
      */
     void store(MasterLibrary lib){
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))){
@@ -26,7 +25,7 @@ class Storage {
      * Retrieves the MasterLibrary previously stored on the disk using the store() method.
      * Will notify via the console if no libraries are found.
      * Will print a System.err message if the file exists but no MasterLibrary objects are found. This shouldn't happen.
-     * @return returns a MasterLibrary object.
+     * @return MasterLibrary object - returns a MasterLibrary object.
      */
     MasterLibrary retrieve(){
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))){

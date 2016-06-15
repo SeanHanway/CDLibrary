@@ -13,13 +13,11 @@ class UserInterfaceHelper {
 
     /**
      * Uses a Buffered Reader to return a String inputted by the user through the console.
-     * @return returns a String representation of the next input made by the user.
+     * @return String - returns a String representation of the next input made by the user.
      */
     String readInput(){
-
         try{
-            String read = scan.readLine();
-            return read;
+            return scan.readLine();
         } catch(IOException IO){
             System.err.println("Error while reading from Keyboard input");
             System.err.println(IO.getMessage());
@@ -29,11 +27,11 @@ class UserInterfaceHelper {
 
     /**
      *  Takes the user through the process of creating a CD using console inputs and returns an instantiated CD object.
-     * @return returns a CD object
+     * @return CD object - returns a CD object
      */
     CD createCD() {
         String name;
-        int released = 0;
+        int released;
         List<Track> trackList = new ArrayList<>();
         boolean valid = true;
 
@@ -56,12 +54,10 @@ class UserInterfaceHelper {
         return new CD(name, released, trackList);
     }
 
-
-
     /**
      * Takes the user through the process of selecting a CDLibrary using console inputs and returns an instantiated CDLibrary object.
      * The object may be new if the user chose to create a new CDLibrary. Otherwise it will come from physical memory and may already contain data.
-     * @return returns a CDLibrary object
+     * @return CDLibrary object - returns a CDLibrary object
      */
     CDLibrary CDLibrarySelection(){
         masterLibrary = MasterLibrary.getMasterLibrary();
@@ -88,8 +84,8 @@ class UserInterfaceHelper {
     /**
      * Allows the user to select a CD from the collection of stored CDs in the chosen CDLibrary
      * No operations are performed on the chosen CD and it is not removed from the collection.
-     * @param cdLib The CDLibrary you wish to read a CD from.
-     * @return returns a CD object.
+     * @param cdLib CDLibrary object - The CDLibrary you wish to read a CD from.
+     * @return CD object - returns a CD object.
      */
     CD cdSelection(CDLibrary cdLib) {
         ArrayList<CD> cds = new ArrayList<CD>(cdLib.getCDLibrary());
