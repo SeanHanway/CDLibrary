@@ -3,8 +3,7 @@ package CDLibrary;
 
 class UserInterface {
 
-    private final String lineBreak = "\n-----------------------------\n";
-    private final String menu = (lineBreak + "Insert New CD (1)\nBrowse CDS (2)\nRemove CD(3)\nCreate new Library (4)\nSave changes (5)\nDelete current Library (6)\nSelect new Library (7)\nQuit (q)" + lineBreak);
+
     private boolean running = true;
 
     private UserInterfaceHelper helper = new UserInterfaceHelper();
@@ -14,6 +13,8 @@ class UserInterface {
      * Handles User Interface using the console.
      */
     void runConsoleInterface(){
+        final String lineBreak = "\n-----------------------------\n";
+        final String menu = (lineBreak + "Insert New CD (1)\nBrowse CDS (2)\nRemove CD(3)\nCreate new Library (4)\nSave changes (5)\nDelete current Library (6)\nSelect new Library (7)\nQuit (q)" + lineBreak);
         chosenLibrary = helper.CDLibrarySelection();
 
         while (running) {
@@ -53,5 +54,9 @@ class UserInterface {
             }
         }
     }
+
+    //Code for running the program using a JavaFX UI will go here.
+    //A separate JavaFX class will be required
+    void runJavaFXInterface(){}
 
 }

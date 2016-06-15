@@ -10,7 +10,6 @@ import java.util.List;
 class UserInterfaceHelper {
 
     private BufferedReader scan = new BufferedReader(new InputStreamReader(System.in));
-    private static MasterLibrary masterLibrary;
 
     /**
      * Uses a Buffered Reader to return a String inputted by the user through the console.
@@ -62,7 +61,7 @@ class UserInterfaceHelper {
      */
     CDLibrary CDLibrarySelection(){
         int choice;
-        masterLibrary = MasterLibrary.getMasterLibrary();
+        MasterLibrary masterLibrary = MasterLibrary.getMasterLibrary();
 
         ArrayList<CDLibrary> cdLibraryArrayList = new ArrayList<CDLibrary>(masterLibrary.getLibrary());
 
