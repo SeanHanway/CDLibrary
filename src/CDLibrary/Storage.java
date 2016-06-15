@@ -16,7 +16,7 @@ class Storage {
             oos.writeObject(lib);
             System.out.println("Library successfully saved.");
         } catch(IOException ex){
-            System.err.println("Error writing to disk.");
+            System.err.println("Unable to write to disk.");
             System.err.println(ex.getMessage());
         }
     }

@@ -1,5 +1,6 @@
 package CDLibrary;
 
+import javax.naming.InvalidNameException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -60,63 +61,103 @@ class UserInterfaceHelper {
      * @return CDLibrary object - returns a CDLibrary object
      */
     CDLibrary CDLibrarySelection(){
+        int choice;
         masterLibrary = MasterLibrary.getMasterLibrary();
 
-        ArrayList<CDLibrary> cdArray = new ArrayList<CDLibrary>(masterLibrary.getLibrary());
+        ArrayList<CDLibrary> cdLibraryArrayList = new ArrayList<CDLibrary>(masterLibrary.getLibrary());
 
         System.out.println("please select a library: ");
         System.out.println("Create new : (0)");
 
-        for (int i = 0; i < cdArray.size(); i++) {
-            System.out.println(cdArray.get(i) + " : (" + (i + 1) + ")");
+        for (int i = 0; i < cdLibraryArrayList.size(); i++) {
+            System.out.println(cdLibraryArrayList.get(i) + " : (" + (i + 1) + ")");
         }
-        int choice = Integer.parseInt(readInput());
 
-        if (choice == 0) {
-            System.out.println("Please enter a name for the new library :");
-            masterLibrary.createLibrary(readInput());
-            cdArray = new ArrayList<CDLibrary>(masterLibrary.getLibrary());
-            return cdArray.get(cdArray.size() - 1);
-        } else
-            return cdArray.get(choice - 1);
+        while (true) {
+            try {
+                choice = Integer.parseInt(readInput());
+                if (choice == 0) {
+                    System.out.println("Please enter a name for the new library :");
+                    while (true) {
+                        if (masterLibrary.createLibrary(readInput())) {
+                            //Updates cdLibraryArrayList to include the new library
+                            cdLibraryArrayList = new ArrayList<CDLibrary>(masterLibrary.getLibrary());
+                            return cdLibraryArrayList.get(0);
+                        } else {
+                            System.out.println("Library already exists. Please enter a different name: ");
+                        }
+                    }
+                } else {
+                    return cdLibraryArrayList.get(choice - 1);
+                }
+            } catch(IndexOutOfBoundsException | NumberFormatException ex){
+                System.out.println("Invalid input. Please enter a valid number.");
+            }
+        }
     }
 
     /**
      * Allows the user to select a CD from the collection of stored CDs in the chosen CDLibrary
      * No operations are performed on the chosen CD and it is not removed from the collection.
+     * Returns null if the CDLibrary contains no CD objects.
      * @param cdLib CDLibrary object - The CDLibrary you wish to read a CD from.
-     * @return CD object - returns a CD object.
+     * @return CD object - returns a CD object. Null if no CDs found.
      */
-    CD cdSelection(CDLibrary cdLib) {
+    CD CDSelection(CDLibrary cdLib) {
         ArrayList<CD> cds = new ArrayList<CD>(cdLib.getCDLibrary());
-        for (int i = 0; i < cds.size(); i++) {
-            System.out.println(cds.get(i).getTitle() + " : (" + (i + 1) + ")");
+        if (cds.size() != 0) {
+            for (int i = 0; i < cds.size(); i++) {
+                System.out.println(cds.get(i).getTitle() + " : (" + (i + 1) + ")");
+            }
+            while (true) {
+                try {
+                    return cds.get(Integer.parseInt(readInput()) - 1);
+                } catch (NumberFormatException | IndexOutOfBoundsException ex) {
+                    System.out.println("Please enter a valid input");
+                }
+            }
         }
-        return cds.get(Integer.parseInt(readInput()) - 1);
+        else{
+            System.out.println("No CDs found.");
+            return null;
+        }
     }
 
     /**
      * Runs the library selection menu after prompting the user to save their current library.
-     * The library will remain unchanged if an invalid input is detected during the save prompt.
-     * @param initialLibrary CDLibrary object - The currently selected CDLibrary
-     * @return CDLibrary object - returns the users newly selected library or the one currently in use should they enter an invalid input.
+     * @return CDLibrary object - returns the users newly selected library.
      */
-    CDLibrary changeLibrary(CDLibrary initialLibrary){
-        System.out.println("Do you wish to save your current Library before continuing? (Y/N)");
+    CDLibrary changeLibrary(){
+        savePrompt();
+        return CDLibrarySelection();
+    }
+
+    /**
+     *  Lets the user browse and inspect CDs in a library.
+     * @param library CDLibrary - Browses CDs from this library.
+     */
+    void browseCDs(CDLibrary library){
+        CD selectedCD = CDSelection(library);
+        if (selectedCD != null) {
+            System.out.println(selectedCD.toString());
+        }
+    }
+
+    /**
+     * Prompts the user to save their changes.
+     */
+    void savePrompt(){
+        boolean running = true;
+        System.out.println("Do you wish to save your changes before continuing? (Y/N)");
+        while(running)
         switch (readInput().toUpperCase()){
             case "Y":
                 (new Storage()).store(MasterLibrary.getMasterLibrary());
             case "N":
-                return CDLibrarySelection();
+                running = false;
+                break;
             default:
-                System.out.println("Invalid input");
-                return initialLibrary;
+                System.out.println("Invalid input. Please try again.");
         }
     }
-
-    void browseCDs(CDLibrary library){
-        CD selectedCD = cdSelection(library);
-        System.out.println(selectedCD.toString());
-    }
-
 }

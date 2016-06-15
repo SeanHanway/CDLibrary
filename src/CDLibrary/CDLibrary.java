@@ -27,7 +27,13 @@ class CDLibrary implements Comparable, Serializable{
      * @param cd CD object - removes the CD parameter from the cdLibrary collection.
      */
     void removeCD(CD cd){
-        cdLibrary.remove(cd);
+        try{
+            cdLibrary.remove(cd);
+            System.out.println(cd.getTitle() + " successfully removed.");
+        } catch(NullPointerException ex){
+            //May need to rethink the CDLibrarySelection() method. It's the reason this method is throwing null pointers during standard operation
+            //and I'd rather not display them to the user when they "should" be happening.
+        }
     }
 
     /**
@@ -46,6 +52,11 @@ class CDLibrary implements Comparable, Serializable{
     @Override
     public String toString(){
         return name;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        return o.getClass().equals(this.getClass()) && this.compareTo(o) == 0;
     }
 
     /**

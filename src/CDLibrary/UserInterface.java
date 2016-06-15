@@ -2,9 +2,9 @@ package CDLibrary;
 
 
 class UserInterface {
-    
+
     private final String lineBreak = "\n-----------------------------\n";
-    private final String menu = (lineBreak + "Insert New CD (1)\nBrowse CDS (2)\nRemove CD(3)\nCreate new Library (4)\nSave current Library (5)\nDelete current Library (6)\nSelect new Library (7)\nQuit (q)" + lineBreak);
+    private final String menu = (lineBreak + "Insert New CD (1)\nBrowse CDS (2)\nRemove CD(3)\nCreate new Library (4)\nSave changes (5)\nDelete current Library (6)\nSelect new Library (7)\nQuit (q)" + lineBreak);
     private boolean running = true;
 
     private UserInterfaceHelper helper = new UserInterfaceHelper();
@@ -28,7 +28,7 @@ class UserInterface {
                     break;
                 case "3":
                     System.out.println("Please select a cd to remove: ");
-                    chosenLibrary.removeCD(helper.cdSelection(chosenLibrary));
+                    chosenLibrary.removeCD(helper.CDSelection(chosenLibrary));
                     break;
                 case "4":
                     System.out.println("Please enter a name for the new library :");
@@ -42,9 +42,10 @@ class UserInterface {
                     chosenLibrary = helper.CDLibrarySelection();
                     break;
                 case "7":
-                    chosenLibrary = helper.changeLibrary(chosenLibrary);
+                    chosenLibrary = helper.changeLibrary();
                     break;
                 case "q":
+                    helper.savePrompt();
                     running = false;
                     break;
                 default:
