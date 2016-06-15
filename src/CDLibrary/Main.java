@@ -3,7 +3,7 @@ package CDLibrary;
 /**
  * To Do List:
  *      Get the program running [x]
- *      Create JavaDocs []
+ *      Document/Comment[]
  *      Test different inputs to try and find potential errors/bugs []
  *      Clean up the code []
  *      Create a GUI []

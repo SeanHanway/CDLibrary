@@ -10,6 +10,9 @@ class UserInterface {
     private UserInterfaceHelper helper = new UserInterfaceHelper();
     private CDLibrary chosenLibrary;
 
+    /**
+     * Handles User Interface using the console.
+     */
     void runConsoleInterface(){
         chosenLibrary = helper.CDLibrarySelection();
 
@@ -32,7 +35,7 @@ class UserInterface {
                     (new Storage().retrieve()).createLibrary(helper.readInput());
                     break;
                 case "5":
-                    (new Storage()).store(helper.getMasterLibrary());
+                    (new Storage()).store(MasterLibrary.getMasterLibrary());
                     break;
                 case "q":
                     running = false;

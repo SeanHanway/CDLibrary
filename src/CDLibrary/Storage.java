@@ -8,7 +8,10 @@ class Storage {
 
     private String file = "StoredObjects";
 
-
+    /**
+     * Stores the MasterLibrary parameter in memory on a file created in the project folder
+     * @param lib A MasterLibrary you wish to store in memory on the hard disk.
+     */
     void store(MasterLibrary lib){
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))){
             oos.writeObject(lib);
@@ -19,6 +22,12 @@ class Storage {
         }
     }
 
+    /**
+     * Retrieves the MasterLibrary previously stored on the disk using the store() method.
+     * Will notify via the console if no libraries are found.
+     * Will print a System.err message if the file exists but no MasterLibrary objects are found. This shouldn't happen.
+     * @return returns a MasterLibrary object.
+     */
     MasterLibrary retrieve(){
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))){
             return (MasterLibrary)ois.readObject();

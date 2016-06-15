@@ -9,8 +9,12 @@ import java.util.List;
 class UserInterfaceHelper {
 
     private BufferedReader scan = new BufferedReader(new InputStreamReader(System.in));
-    static MasterLibrary masterLibrary;
+    private static MasterLibrary masterLibrary;
 
+    /**
+     * Uses a Buffered Reader to return a String inputted by the user through the console.
+     * @return returns a String representation of the next input made by the user.
+     */
     String readInput(){
 
         try{
@@ -23,6 +27,10 @@ class UserInterfaceHelper {
         }
     }
 
+    /**
+     *  Takes the user through the process of creating a CD using console inputs and returns an instantiated CD object.
+     * @return returns a CD object
+     */
     CD createCD() {
         String name;
         int released = 0;
@@ -48,14 +56,15 @@ class UserInterfaceHelper {
         return new CD(name, released, trackList);
     }
 
-    MasterLibrary getMasterLibrary(){
-        if (masterLibrary == null)
-            masterLibrary = (new Storage()).retrieve();
-        return masterLibrary;
-    }
 
+
+    /**
+     * Takes the user through the process of selecting a CDLibrary using console inputs and returns an instantiated CDLibrary object.
+     * The object may be new if the user chose to create a new CDLibrary. Otherwise it will come from physical memory and may already contain data.
+     * @return returns a CDLibrary object
+     */
     CDLibrary CDLibrarySelection(){
-        getMasterLibrary();
+        masterLibrary = MasterLibrary.getMasterLibrary();
 
         ArrayList<CDLibrary> cdArray = new ArrayList<CDLibrary>(masterLibrary.getLibrary());
 
@@ -76,6 +85,12 @@ class UserInterfaceHelper {
             return cdArray.get(choice - 1);
     }
 
+    /**
+     * Allows the user to select a CD from the collection of stored CDs in the chosen CDLibrary
+     * No operations are performed on the chosen CD and it is not removed from the collection.
+     * @param cdLib The CDLibrary you wish to read a CD from.
+     * @return returns a CD object.
+     */
     CD cdSelection(CDLibrary cdLib) {
         ArrayList<CD> cds = new ArrayList<CD>(cdLib.getCDLibrary());
         for (int i = 0; i < cds.size(); i++) {
