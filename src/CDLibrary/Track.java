@@ -13,4 +13,16 @@ class Track implements Serializable{
     }
 
     private final String name;
+
+    /**
+     * @return String - track name
+     */
+    String getName(){
+        return name;
+    }
+
+    @Override
+    public String toString(){
+        return name;
+    }
 }

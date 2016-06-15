@@ -1,6 +1,7 @@
 package CDLibrary;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -19,7 +20,7 @@ class CD implements Comparable, Serializable{
 
     private final String title;
     private final int released;
-    private List tracks;
+    private List<Track> tracks;
 
     /**
      *
@@ -32,11 +33,18 @@ class CD implements Comparable, Serializable{
     }
 
     /**
-     * @return String - returns the title of the CD object
+     * @return String - returns all information about the CD Object, including the tracks stored on it.
      */
     @Override
     public String toString(){
-        return title;
+        List<Track> trackArrayList = new ArrayList<>(tracks);
+        String trackString = "";
+
+        for(int i = 0; i < trackArrayList.size(); i++){
+            trackString += ((i + 1) + ": " + trackArrayList.get(i) + "\n");
+        }
+
+        return ("Title: " + title + "\nRelease Year: " + released + "\n" + trackString);
     }
 
     /**

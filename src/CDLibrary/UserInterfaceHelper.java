@@ -90,9 +90,33 @@ class UserInterfaceHelper {
     CD cdSelection(CDLibrary cdLib) {
         ArrayList<CD> cds = new ArrayList<CD>(cdLib.getCDLibrary());
         for (int i = 0; i < cds.size(); i++) {
-            System.out.println(cds.get(i) + " : (" + i + ")");
+            System.out.println(cds.get(i).getTitle() + " : (" + (i + 1) + ")");
         }
-        return cds.get(Integer.parseInt(readInput()));
+        return cds.get(Integer.parseInt(readInput()) - 1);
+    }
+
+    /**
+     * Runs the library selection menu after prompting the user to save their current library.
+     * The library will remain unchanged if an invalid input is detected during the save prompt.
+     * @param initialLibrary CDLibrary object - The currently selected CDLibrary
+     * @return CDLibrary object - returns the users newly selected library or the one currently in use should they enter an invalid input.
+     */
+    CDLibrary changeLibrary(CDLibrary initialLibrary){
+        System.out.println("Do you wish to save your current Library before continuing? (Y/N)");
+        switch (readInput().toUpperCase()){
+            case "Y":
+                (new Storage()).store(MasterLibrary.getMasterLibrary());
+            case "N":
+                return CDLibrarySelection();
+            default:
+                System.out.println("Invalid input");
+                return initialLibrary;
+        }
+    }
+
+    void browseCDs(CDLibrary library){
+        CD selectedCD = cdSelection(library);
+        System.out.println(selectedCD.toString());
     }
 
 }
