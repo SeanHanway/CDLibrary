@@ -3,11 +3,9 @@ package CDLibrary;
 
 class UserInterface {
 
-
     private boolean running = true;
 
-    private UserInterfaceHelper helper = new UserInterfaceHelper();
-    private CDLibrary chosenLibrary;
+    private final UserInterfaceHelper helper = new UserInterfaceHelper();
 
     /**
      * Handles User Interface using the console.
@@ -15,7 +13,7 @@ class UserInterface {
     void runConsoleInterface(){
         final String lineBreak = "\n-----------------------------\n";
         final String menu = (lineBreak + "Insert New CD (1)\nBrowse CDS (2)\nRemove CD(3)\nCreate new Library (4)\nSave changes (5)\nDelete current Library (6)\nSelect new Library (7)\nQuit (q)" + lineBreak);
-        chosenLibrary = helper.CDLibrarySelection();
+        CDLibrary chosenLibrary = helper.CDLibrarySelection();
 
         while (running) {
             System.out.println(menu);
@@ -56,7 +54,7 @@ class UserInterface {
     }
 
     //Code for running the program using a JavaFX UI will go here.
-    //A separate JavaFX class will be required
+    //A call will be made to a separate UI package.
     void runJavaFXInterface(){}
 
 }
