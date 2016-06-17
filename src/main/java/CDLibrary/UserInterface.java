@@ -1,6 +1,5 @@
 package CDLibrary;
 
-
 class UserInterface {
 
     private boolean running = true;
@@ -10,7 +9,7 @@ class UserInterface {
     /**
      * Handles User Interface using the console.
      */
-    void runConsoleInterface(){
+    void runConsoleInterface() {
         final String lineBreak = "\n-----------------------------\n";
         final String menu = (lineBreak + "Insert New CD (1)\nBrowse CDS (2)\nRemove CD(3)\nCreate new Library (4)\nSave changes (5)\nDelete current Library (6)\nSelect new Library (7)\nQuit (q)" + lineBreak);
         CDLibrary chosenLibrary = helper.CDLibrarySelection();
