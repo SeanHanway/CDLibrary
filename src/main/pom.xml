@@ -9,11 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
-        <dependency>
-            <groupId>CDLibrary</groupId>
-            <artifactId>com.JavaFXUserInterface</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
     </dependencies>
     
 </project>
