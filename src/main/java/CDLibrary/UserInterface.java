@@ -54,6 +54,8 @@ class UserInterface {
 
     //Code for running the program using a JavaFX UI will go here.
     //A call will be made to a separate UI package.
-    void runJavaFXInterface(){}
+    void runJavaFXInterface(){
+        CDLibraryFX.Main.main(null);
+    }
 
 }
