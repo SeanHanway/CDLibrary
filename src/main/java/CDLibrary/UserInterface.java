@@ -1,5 +1,7 @@
 package CDLibrary;
 
+import CDLibraryFX.Run;
+
 class UserInterface {
 
     private boolean running = true;
@@ -55,7 +57,7 @@ class UserInterface {
     //Code for running the program using a JavaFX UI will go here.
     //A call will be made to a separate UI package.
     void runJavaFXInterface(){
-        CDLibraryFX.Main.main(null);
+        Run.main(null);
     }
 
 }
