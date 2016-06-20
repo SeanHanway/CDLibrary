@@ -24,6 +24,7 @@ class MasterLibrary implements Serializable{
      * creates a new CDLibrary object in the library Collection located in the MasterLibrary object used to call this method.
      * This does NOT create a new MasterLibrary.
      * @param name String - This will be the name of the CDLibrary object that is going to be created.
+     * @return boolean - returns true if a new library was successfully created. Otherwise returns false.
      */
     boolean createLibrary(String name){
         return library.add(new CDLibrary(name));
@@ -32,6 +33,7 @@ class MasterLibrary implements Serializable{
     /**
      * Removes the cdLibrary parameter from the library.
      * @param cdLibrary CDLibrary object - the cdLibrary you wish to have removed from the library.
+     * @return boolean - returns true if the library exists and was successfully removed from the library. Otherwise returns false.
      */
     boolean removeFromLibrary(CDLibrary cdLibrary){
         return library.remove(cdLibrary);

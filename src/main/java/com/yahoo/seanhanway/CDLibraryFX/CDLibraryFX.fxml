@@ -6,8 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane fx:controller="com.yahoo.seanhanway.CDLibraryFX.Controller"
-          stylesheets="/com/yahoo/seanhanway/Styling/ApplicationStyle.css"
+<GridPane fx:controller="com.yahoo.seanhanway.CDLibraryFX.CDLibraryFXController"
+          stylesheets="/com/yahoo/seanhanway/CDLibraryFX/ApplicationStyle.css"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
           styleClass="root">
     <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>

@@ -8,6 +8,10 @@ import javafx.stage.Stage;
 
 public class Run extends Application {
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("CDLibraryFX.fxml"));
@@ -15,10 +19,5 @@ public class Run extends Application {
         primaryStage.setTitle("Welcome User");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

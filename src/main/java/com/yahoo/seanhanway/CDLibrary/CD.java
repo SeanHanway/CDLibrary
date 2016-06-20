@@ -10,7 +10,7 @@ class CD implements Comparable, Serializable{
     /**
      * @param title String - title of the CD
      * @param released Int - year of release
-     * @param trackList List<Track> - a list of track objects stored in the CD.
+     * @param trackList List(Track) - a list of track objects stored in the CD.
      */
     CD(String title, int released, List<Track> trackList){
         this.title=title;
