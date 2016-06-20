@@ -14,3 +14,5 @@ Creates a database of CDS and store them on the hard disk
 | Create JAR file and deploy program | Not yet started |
 
  ~~**Note:** Working on a separate javaFX package for UI. Will upload progress to GitHub as soon as there's something worth looking at.~~
+ 
+ **Note:** GUI currently exists however it is only a login screen made for testing purposes. Functionality still not implemented.
