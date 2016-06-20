@@ -1,4 +1,4 @@
-package CDLibrary;
+package com.yahoo.seanhanway.CDLibrary;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -63,7 +63,7 @@ class UserInterfaceHelper {
         int choice;
         MasterLibrary masterLibrary = MasterLibrary.getMasterLibrary();
 
-        ArrayList<CDLibrary> cdLibraryArrayList = new ArrayList<CDLibrary>(masterLibrary.getLibrary());
+        ArrayList<CDLibrary> cdLibraryArrayList = new ArrayList<>(masterLibrary.getLibrary());
 
         System.out.println("please select a library: ");
         System.out.println("Create new : (0)");
@@ -80,7 +80,7 @@ class UserInterfaceHelper {
                     while (true) {
                         if (masterLibrary.createLibrary(readInput())) {
                             //Updates cdLibraryArrayList to include the new library
-                            cdLibraryArrayList = new ArrayList<CDLibrary>(masterLibrary.getLibrary());
+                            cdLibraryArrayList = new ArrayList<>(masterLibrary.getLibrary());
                             return cdLibraryArrayList.get(0);
                         } else {
                             System.out.println("Library already exists. Please enter a different name: ");
@@ -103,7 +103,7 @@ class UserInterfaceHelper {
      * @return CD object - returns a CD object. Null if no CDs found.
      */
     CD CDSelection(CDLibrary cdLib) {
-        ArrayList<CD> cds = new ArrayList<CD>(cdLib.getCDLibrary());
+        ArrayList<CD> cds = new ArrayList<>(cdLib.getCDLibrary());
         if (cds.size() != 0) {
             for (int i = 0; i < cds.size(); i++) {
                 System.out.println(cds.get(i).getTitle() + " : (" + (i + 1) + ")");

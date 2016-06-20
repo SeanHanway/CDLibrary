@@ -1,4 +1,4 @@
-package CDLibraryFX;
+package com.yahoo.seanhanway.CDLibraryFX;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

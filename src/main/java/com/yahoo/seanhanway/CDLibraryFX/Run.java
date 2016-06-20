@@ -1,4 +1,4 @@
-package CDLibraryFX;
+package com.yahoo.seanhanway.CDLibraryFX;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

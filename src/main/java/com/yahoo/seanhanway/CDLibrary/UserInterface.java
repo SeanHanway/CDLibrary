@@ -1,6 +1,6 @@
-package CDLibrary;
+package com.yahoo.seanhanway.CDLibrary;
 
-import CDLibraryFX.Run;
+import com.yahoo.seanhanway.CDLibraryFX.Run;
 
 class UserInterface {
 
