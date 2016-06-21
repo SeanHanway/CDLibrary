@@ -14,8 +14,8 @@ public class Run extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("CDLibraryFX.fxml"));
-        Scene scene = new Scene(root, 300, 275);
+        Parent root = FXMLLoader.load(getClass().getResource("CDLibraryFXBuild.fxml"));
+        Scene scene = new Scene(root, 800, 600);
         primaryStage.setTitle("Welcome User");
         primaryStage.setScene(scene);
         primaryStage.show();
