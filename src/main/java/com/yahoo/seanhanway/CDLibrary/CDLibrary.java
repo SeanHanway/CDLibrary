@@ -60,7 +60,7 @@ class CDLibrary implements Comparable, Serializable{
     }
 
     /**
-     * @return Collection - Returns the cdLibrary collection stored in this cdLibrary collection.
+     * @return Collection - Returns the cdLibrary collection stored in this cdLibrary class.
      */
     Collection<CD> getCDLibrary(){
         return cdLibrary;

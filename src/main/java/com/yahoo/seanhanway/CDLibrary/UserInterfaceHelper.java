@@ -31,6 +31,7 @@ class UserInterfaceHelper {
      */
     CD createCD() {
         String name;
+        String album;
         int released;
         List<Track> trackList = new ArrayList<>();
         boolean valid = true;
@@ -45,7 +46,9 @@ class UserInterfaceHelper {
         while (valid) {
             String in = readInput();
             if (!in.equals("")){
-                Track track = new Track(in);
+                System.out.println("Please enter the album this song is from.");
+                album = readInput();
+                Track track = new Track(in, album);
                 trackList.add(track);
             } else
                 valid = false;
