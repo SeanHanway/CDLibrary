@@ -13,6 +13,5 @@ Creates a database of CDS and store them on the hard disk
 | Integrate Maven | On Hold |
 | Create JAR file and deploy program | Not yet started |
  
- ~~**Note:** GUI currently exists however it is only a login screen made for testing purposes. Functionality still not implemented.~~
 
-**Note:** GUI updated to reflect the final anticipated look of the program.
+**Daily Progress:** CDLibraries can now be created through the GUI (However cannot be saved yet.)
