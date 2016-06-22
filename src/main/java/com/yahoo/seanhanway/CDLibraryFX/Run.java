@@ -16,7 +16,7 @@ public class Run extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("CDLibraryFXBuild.fxml"));
         Scene scene = new Scene(root, 800, 600);
-        primaryStage.setTitle("Welcome User");
+        primaryStage.setTitle("CD Library");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
