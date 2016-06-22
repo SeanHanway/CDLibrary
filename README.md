@@ -14,4 +14,4 @@ Creates a database of CDS and store them on the hard disk
 | Create JAR file and deploy program | Not yet started |
  
 
-**Daily Progress:** CDLibraries can now be created through the GUI (However cannot be saved yet.)
+**Daily Progress:** CDLibraries can now be created and saved through the GUI
