@@ -5,7 +5,7 @@ import java.io.*;
 
 class Storage {
 
-    private String file = "StoredObjects";
+    private String file = "StoredObjects.ser";
 
     /**
      * Stores the MasterLibrary parameter in memory on a file created in the project folder
