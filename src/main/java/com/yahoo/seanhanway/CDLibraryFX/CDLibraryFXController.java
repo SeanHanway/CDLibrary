@@ -1,5 +1,6 @@
 package com.yahoo.seanhanway.CDLibraryFX;
 
+import com.yahoo.seanhanway.CDLibrary.FXHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,12 +12,13 @@ import javafx.scene.text.Text;
 public class CDLibraryFXController {
     @FXML private Text actiontarget;
     private static Stage popupWindow;
+    FXHelper helper = new FXHelper();
 
-    @FXML protected void handleSubmitButtonAction(ActionEvent event) {
+    @FXML protected void handleSubmitButtonAction() {
         actiontarget.setText("Sign in button pressed");
     }
 
-    @FXML protected void handleSubmitNewMenuAction(ActionEvent event) throws Exception{
+    @FXML protected void handleSubmitNewMenuAction() throws Exception{
         Stage newMenuStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("LibraryCreationDialogueWindow.fxml"));
         Scene scene = new Scene(root, 350, 150);
@@ -30,27 +32,29 @@ public class CDLibraryFXController {
         ((Stage)popupWindow.getScene().getWindow()).close();
     }
 
-    @FXML protected void closeStage(ActionEvent event){
-        ((Stage)popupWindow.getScene().getWindow()).close();
-    }
-
-    @FXML protected void handleSubmitOpenMenuAction(ActionEvent event){
+    @FXML protected void handleSubmitOpenMenuAction(){
 
     }
 
-    @FXML protected void handleSubmitSaveMenuAction(ActionEvent event){
+    @FXML protected void handleSubmitSaveMenuAction() throws Exception{
+        Stage newMenuStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("SaveResultDialogueWindow.fxml"));
+        Scene scene = new Scene(root, 325, 85);
+        newMenuStage.setTitle("Saving");
+        newMenuStage.setScene(scene);
+        newMenuStage.show();
+        popupWindow = newMenuStage;
+    }
+
+    @FXML protected void handleSubmitCloseMenuAction(){
 
     }
 
-    @FXML protected void handleSubmitCloseMenuAction(ActionEvent event){
+    @FXML protected void handleSubmitQuitMenuAction(){
 
     }
 
-    @FXML protected void handleSubmitQuitMenuAction(ActionEvent event){
-
-    }
-
-    @FXML protected void handleSubmitNewCDMenuAction(ActionEvent event){
+    @FXML protected void handleSubmitNewCDMenuAction(){
 
     }
 }
