@@ -10,14 +10,17 @@ class Storage {
     /**
      * Stores the MasterLibrary parameter in memory on a file created in the project folder
      * @param lib MasterLibrary object - A MasterLibrary you wish to store in memory on the hard disk.
+     * @return boolean - Returns true if the library was successfully saved, otherwise returns false.
      */
-    void store(MasterLibrary lib){
+    boolean store(MasterLibrary lib){
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))){
             oos.writeObject(lib);
             System.out.println("Library successfully saved.");
+            return true;
         } catch(IOException ex){
             System.err.println("Unable to write to disk.");
             System.err.println(ex.getMessage());
+            return false;
         }
     }
 
