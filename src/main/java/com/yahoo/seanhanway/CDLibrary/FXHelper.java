@@ -7,4 +7,8 @@ public class FXHelper {
     }
 
     //public boolean addCD(String name, )
+
+    public boolean saveCDLibrary(){
+        return new Storage().store(MasterLibrary.getMasterLibrary());
+    }
 }
