@@ -36,17 +36,22 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+                <MenuItem mnemonicParsing="false" text="New Library" onAction="#handleSubmitNewMenuAction"/>
+                <MenuItem mnemonicParsing="false" text="Open..." onAction="#handleSubmitOpenMenuAction"/>
+                <MenuItem mnemonicParsing="false" text="Save" onAction="#handleSubmitSaveMenuAction"/>
+                <MenuItem mnemonicParsing="false" text="Close" onAction="#handleSubmitCloseMenuAction"/>
+                <MenuItem mnemonicParsing="false" text="Quit" onAction="#handleSubmitQuitMenuAction"/>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+                <MenuItem mnemonicParsing="false" text="Delete" />
+                <MenuItem mnemonicParsing="false" text="Rename"/>
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Create">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="New CD" onAction="#handleSubmitNewCDMenuAction"/>
             </items>
           </Menu>
         </menus>
