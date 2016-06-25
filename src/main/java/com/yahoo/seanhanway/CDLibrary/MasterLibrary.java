@@ -46,4 +46,18 @@ class MasterLibrary implements Serializable{
         return library;
     }
 
+    /**
+     * Retrieves the library with name matching the String parameter.
+     * @param name - The name of the library to be returned.
+     * @return CDLibrary - will return null if no library matching the String parameter was found.
+     */
+    CDLibrary getLibrary(String name){
+        for(CDLibrary lib : library){
+            if (lib.toString().equals(name)){
+                return lib;
+            }
+        }
+        return null;
+    }
+
 }
