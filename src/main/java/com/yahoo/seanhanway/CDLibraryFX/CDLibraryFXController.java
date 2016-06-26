@@ -28,7 +28,7 @@ public class CDLibraryFXController {
      */
     @FXML protected void handleSubmitNewMenuAction() throws Exception{
         Stage newMenuStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("LibraryCreationDialogueWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("NewLibraryDialogueWindow.fxml"));
         Scene scene = new Scene(root, 350, 150);
         newMenuStage.setTitle("Create new Library");
         newMenuStage.setScene(scene);
@@ -42,8 +42,8 @@ public class CDLibraryFXController {
      */
     @FXML protected void handleSubmitOpenMenuAction() throws Exception{
         Stage newMenuStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("LibraryOpenDialogueWindow.fxml"));
-        Scene scene = new Scene(root, 350, 300);
+        Parent root = FXMLLoader.load(getClass().getResource("OpenLibraryDialogueWindow.fxml"));
+        Scene scene = new Scene(root, 350, 220);
         newMenuStage.setTitle("Open Library");
         newMenuStage.setScene(scene);
         newMenuStage.show();
