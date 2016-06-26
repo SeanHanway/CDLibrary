@@ -14,4 +14,6 @@ Creates a database of CDS and store them on the hard disk
 | Create JAR file and deploy program | Not yet started |
  
 
-**Daily Progress:** Progress being made with opening Libraries through the GUI, not quite there yet however.
+**Daily Progress:** The "Open" option under the "File" tab within the toolbar is now fully functioning.
+
+**Next Step:** Displaying the CD's stored in the selected CDLibrary on the main window.
