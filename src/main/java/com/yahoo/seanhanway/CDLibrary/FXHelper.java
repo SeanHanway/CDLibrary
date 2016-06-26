@@ -45,6 +45,10 @@ public class FXHelper {
      */
     public Collection<String> getLibraryAsString(){
         List<CDLibrary> library = new ArrayList<>(MasterLibrary.getMasterLibrary().getLibrary());
-        return library.stream().map(lib -> library.toString()).collect(Collectors.toList());
+        ArrayList<String> ret = new ArrayList<>();
+        for(CDLibrary lib : library){
+            ret.add(lib.toString());
+        }
+        return ret;
     }
 }
