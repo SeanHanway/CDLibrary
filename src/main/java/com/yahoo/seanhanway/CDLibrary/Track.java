@@ -3,7 +3,7 @@ package com.yahoo.seanhanway.CDLibrary;
 import java.io.Serializable;
 
 
-class Track implements Serializable{
+public class Track implements Serializable{
 
     /**
      * @param name String - the name of the track.
@@ -19,14 +19,14 @@ class Track implements Serializable{
     /**
      * @return String - track name
      */
-    String getName(){
+    public String getName(){
         return name;
     }
 
     /**
      * @return String - album name
      */
-    String getAlbum(){
+    public String getAlbum(){
         return album;
     }
 
