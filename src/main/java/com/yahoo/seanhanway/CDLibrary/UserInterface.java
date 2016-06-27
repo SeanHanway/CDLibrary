@@ -59,5 +59,4 @@ class UserInterface {
     void runJavaFXInterface(){
         Run.main(null);
     }
-
 }

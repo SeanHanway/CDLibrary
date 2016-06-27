@@ -32,5 +32,4 @@ public class OpenLibraryDialogueWindowController extends CDLibraryFXController i
             closeStage();
         }
     }
-
 }

@@ -65,5 +65,4 @@ class CDLibrary implements Comparable, Serializable{
     Collection<CD> getCDLibrary(){
         return cdLibrary;
     }
-
 }

@@ -53,5 +53,4 @@ public class CD implements Comparable, Serializable{
     String getTitle(){
         return title;
     }
-
 }
