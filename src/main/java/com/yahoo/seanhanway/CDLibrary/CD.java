@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CD implements Comparable, Serializable{
+class CD implements Comparable, Serializable{
 
     /**
      * @param title String - title of the CD
@@ -52,5 +52,9 @@ public class CD implements Comparable, Serializable{
      */
     String getTitle(){
         return title;
+    }
+
+    List<Track> getTracks(){
+        return tracks;
     }
 }
