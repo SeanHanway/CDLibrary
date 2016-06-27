@@ -3,7 +3,7 @@ package com.yahoo.seanhanway.CDLibrary;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class FXHelper {
 
@@ -64,5 +64,12 @@ public class FXHelper {
             ret.add(lib.getTitle());
         }
         return ret;
+    }
+
+    public Collection<Track> getCDTracks(String CDLibraryName, String CDName){
+        return MasterLibrary.getMasterLibrary()
+                .getLibrary(CDLibraryName)
+                .findCD(CDName)
+                .getTracks();
     }
 }
