@@ -2,18 +2,26 @@ package com.yahoo.seanhanway.CDLibraryFX;
 
 import com.yahoo.seanhanway.CDLibrary.FXHelper;
 import com.yahoo.seanhanway.CDLibrary.CD;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+
+import java.net.URL;
 import java.util.Collection;
+import java.util.ResourceBundle;
 import java.util.TreeSet;
 
 public class CDLibraryFXController {
     private static Stage popupWindow;
     FXHelper helper = new FXHelper();
     private static String CDLibraryName;
+    @FXML protected ListView<String> cdlist = new ListView<>();
 
     /**
      * Closes any stages opened by a method within this class.
@@ -80,7 +88,10 @@ public class CDLibraryFXController {
      * Populates the main window with information regarding each CD stored in the selected CDLibrary.
      */
     @FXML protected void populateCDLibraryWindow(){
-        Collection<CD> library = new TreeSet<>(helper.getCDLibrary(CDLibraryName));
+        if(!(CDLibraryName == null)) {
+            ObservableList<String> names = FXCollections.observableArrayList(helper.getCDLibraryAsString(CDLibraryName));
+            cdlist.setItems(names);
+        }
     }
 
     /**
