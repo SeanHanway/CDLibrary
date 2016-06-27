@@ -1,27 +1,28 @@
 package com.yahoo.seanhanway.CDLibraryFX;
 
 import com.yahoo.seanhanway.CDLibrary.FXHelper;
-import com.yahoo.seanhanway.CDLibrary.CD;
+import com.yahoo.seanhanway.CDLibrary.Track;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
-import java.net.URL;
-import java.util.Collection;
-import java.util.ResourceBundle;
-import java.util.TreeSet;
+import javafx.scene.control.TableColumn;
 
 public class CDLibraryFXController {
     private static Stage popupWindow;
     FXHelper helper = new FXHelper();
     private static String CDLibraryName;
     @FXML protected ListView<String> cdlist = new ListView<>();
+    @FXML protected TableView<Track> cdtable;
+    @FXML protected TableColumn<Track, String> songnamecolumn;
+    @FXML protected TableColumn<Track, String> releaseyearcolumn;
+    @FXML protected TableColumn<Track, String> albumnamecolumn;
 
     /**
      * Closes any stages opened by a method within this class.
@@ -92,6 +93,22 @@ public class CDLibraryFXController {
             ObservableList<String> names = FXCollections.observableArrayList(helper.getCDLibraryAsString(CDLibraryName));
             cdlist.setItems(names);
         }
+    }
+
+    /**
+     * Populates the main window with information regarding each track within a CD when that CD is selected.
+     */
+    @FXML protected void populateCDWindow(){
+        ObservableList<Track> data = FXCollections.observableArrayList(
+                helper.getCDTracks(
+                        CDLibraryName, cdlist.getSelectionModel().getSelectedItem())
+        );
+
+        songnamecolumn.setCellValueFactory(
+                new PropertyValueFactory<>("name")
+        );
+
+        cdtable.setItems(data);
     }
 
     /**

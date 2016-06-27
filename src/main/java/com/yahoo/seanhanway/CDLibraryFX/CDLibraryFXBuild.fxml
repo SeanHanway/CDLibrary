@@ -1,41 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#populateCDLibraryWindow" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yahoo.seanhanway.CDLibraryFX.CDLibraryFXController">
-         <SplitPane dividerPositions="0.2" layoutX="200.0" layoutY="108.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                <AnchorPane maxWidth="-Infinity" minHeight="50.0" minWidth="100.0" prefHeight="160.0" prefWidth="250.0" SplitPane.resizableWithParent="false">
-
-                           <ListView fx:id="cdlist" layoutX="-28.0" layoutY="23.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="375.0" prefWidth="117.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="23.0" />
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                           <TableView layoutX="125.0" layoutY="99.0" prefHeight="398.0" prefWidth="475.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="23.0">
-                             <columns>
-                               <TableColumn minWidth="50.0" prefWidth="166.0" text="Song Name" />
-                               <TableColumn minWidth="30.0" prefWidth="40.0" text="Release Year" />
-                                 <TableColumn minWidth="50.0" prefWidth="198.0" text="Album Name" />
-                             </columns>
-                              <columnResizePolicy>
-                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                              </columnResizePolicy>
-                           </TableView>
-                  </AnchorPane>
-         </SplitPane>
-         <MenuBar minWidth="0.0" styleClass="menubar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                <Menu mnemonicParsing="false" text="File">
-                         <MenuItem mnemonicParsing="false" onAction="#handleSubmitNewMenuAction" text="New Library" />
-                         <MenuItem mnemonicParsing="false" onAction="#handleSubmitOpenMenuAction" text="Open..." />
-                         <MenuItem mnemonicParsing="false" onAction="#handleSubmitSaveMenuAction" text="Save" />
-                         <MenuItem mnemonicParsing="false" onAction="#handleSubmitCloseMenuAction" text="Close" />
-                         <MenuItem mnemonicParsing="false" onAction="#handleSubmitQuitMenuAction" text="Quit" />
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                         <MenuItem mnemonicParsing="false" text="Delete" />
-                         <MenuItem mnemonicParsing="false" text="Rename" />
-                </Menu>
-                <Menu mnemonicParsing="false" text="Create">
-                       <MenuItem mnemonicParsing="false" onAction="#handleSubmitNewCDMenuAction" text="New CD" />
-                </Menu>
-         </MenuBar>
+   <children>
+            <SplitPane dividerPositions="0.2" layoutX="200.0" layoutY="108.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <items>
+                      <AnchorPane maxWidth="-Infinity" minHeight="50.0" minWidth="100.0" prefHeight="160.0" prefWidth="250.0" SplitPane.resizableWithParent="false">
+                         <children>
+         
+                                    <ListView fx:id="cdlist" layoutX="-28.0" layoutY="23.0" maxHeight="-Infinity" maxWidth="-Infinity" onMousePressed="#populateCDWindow" prefHeight="375.0" prefWidth="117.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="23.0" />
+                         </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                         <children>
+                                    <TableView fx:id="cdtable" layoutX="125.0" layoutY="99.0" prefHeight="398.0" prefWidth="475.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="23.0">
+                                      <columns>
+                                        <TableColumn fx:id="songnamecolumn" minWidth="50.0" prefWidth="166.0" text="Song Name" />
+                                        <TableColumn fx:id="releaseyearcolumn" minWidth="30.0" prefWidth="40.0" text="Release Year" />
+                                          <TableColumn fx:id="albumnamecolumn" minWidth="50.0" prefWidth="198.0" text="Album Name" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                         </children>
+                        </AnchorPane>
+               </items>
+            </SplitPane>
+            <MenuBar minWidth="0.0" styleClass="menubar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                         <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#handleSubmitNewMenuAction" text="New Library" />
+                                  <MenuItem mnemonicParsing="false" onAction="#handleSubmitOpenMenuAction" text="Open..." />
+                                  <MenuItem mnemonicParsing="false" onAction="#handleSubmitSaveMenuAction" text="Save" />
+                                  <MenuItem mnemonicParsing="false" onAction="#handleSubmitCloseMenuAction" text="Close" />
+                                  <MenuItem mnemonicParsing="false" onAction="#handleSubmitQuitMenuAction" text="Quit" />
+                         </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Edit">
+                         <items>
+                                  <MenuItem mnemonicParsing="false" text="Delete" />
+                                  <MenuItem mnemonicParsing="false" text="Rename" />
+                         </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Create">
+                         <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleSubmitNewCDMenuAction" text="New CD" />
+                         </items>
+                      </Menu>
+               </menus>
+            </MenuBar>
+   </children>
 </AnchorPane>
