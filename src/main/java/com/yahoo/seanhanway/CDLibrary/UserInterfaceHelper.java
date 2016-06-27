@@ -42,8 +42,8 @@ class UserInterfaceHelper {
         System.out.println("Please enter the release year of the CD:");
         released = Integer.parseInt(readInput());
 
-        System.out.println("Please enter each track on the CD separated by a line break. Enter an empty value to finish.");
         while (valid) {
+            System.out.println("Please enter each track on the CD separated by a line break. Enter an empty value to finish.");
             String in = readInput();
             if (!in.equals("")){
                 System.out.println("Please enter the album this song is from.");
