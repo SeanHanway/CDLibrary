@@ -14,6 +14,6 @@ Creates a database of CDS and store them on the hard disk
 | Create JAR file and deploy program | Not yet started |
  
 
-**Daily Progress:** The "Open" option under the "File" tab within the toolbar is now fully functioning.
+**Daily Progress:** CDs now display their tracks when selected in the main window.
 
-**Next Step:** Displaying the CD's stored in the selected CDLibrary on the main window.
+**Next Step:** Ability to add CDs through the GUI. Look over possibility of making Track class private again.
