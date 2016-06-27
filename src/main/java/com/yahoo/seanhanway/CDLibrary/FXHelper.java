@@ -27,7 +27,7 @@ public class FXHelper {
      * @param name - The name of the CDLibrary to be retrieved
      * @return Collection(CD) - a collection containing all CDS found in the requested CDLibrary.
      */
-    public Collection<CD> getCDLibrary(String name){
+    private Collection<CD> getCDLibrary(String name){
         return MasterLibrary.getMasterLibrary().getLibrary(name).getCDLibrary();
     }
 
@@ -48,6 +48,20 @@ public class FXHelper {
         ArrayList<String> ret = new ArrayList<>();
         for(CDLibrary lib : library){
             ret.add(lib.toString());
+        }
+        return ret;
+    }
+
+    /**
+     * Returns the title of each CD within the CDLibrary, with name matching the String parameter, as an ArrayList.
+     * @param cdLibraryName String - name of the CDLibrary to be used.
+     * @return Collection(String) - An ArrayList containing the title of each CD within the given CDLibrary
+     */
+    public Collection<String> getCDLibraryAsString(String cdLibraryName) {
+        List<CD> library = new ArrayList<>(getCDLibrary(cdLibraryName));
+        ArrayList<String> ret = new ArrayList<>();
+        for(CD lib : library){
+            ret.add(lib.getTitle());
         }
         return ret;
     }
