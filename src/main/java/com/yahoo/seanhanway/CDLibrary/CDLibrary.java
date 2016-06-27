@@ -36,6 +36,15 @@ class CDLibrary implements Comparable, Serializable{
         }
     }
 
+    CD findCD(String name){
+        for (CD current : cdLibrary){
+            if(current.getTitle().equals(name)){
+                return current;
+            }
+        }
+        return null;
+    }
+
     /**
      * Uses the toString method for comparison.
      * @param o Object - the object you wish to compare this object to.
