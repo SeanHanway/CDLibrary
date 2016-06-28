@@ -16,4 +16,4 @@ Creates a database of CDS and store them on the hard disk
 
 **Daily Progress:** CDs now display their tracks when selected in the main window.
 
-**Next Step:** Ability to add CDs through the GUI. Look over possibility of making Track class private again.
+**Next Steps:** Ability to add CDs through the GUI. Look over possibility of making Track class private again.
